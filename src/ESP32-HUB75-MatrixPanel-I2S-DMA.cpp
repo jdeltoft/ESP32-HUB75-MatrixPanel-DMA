@@ -332,8 +332,10 @@ void IRAM_ATTR MatrixPanel_I2S_DMA::updateMatrixDMABuffer(uint16_t x_coord, uint
 
   /* 1) Check that the co-ordinates are within range, or it'll break everything big time.
    * Valid co-ordinates are from 0 to (MATRIX_XXXX-1)
+   * 
+   * For the Rows the are (1 to N) instead of (0 to N-1) so use > instead of >=
    */
-  if (x_coord >= PIXELS_PER_ROW || y_coord >= m_cfg.mx_height)
+  if (x_coord > PIXELS_PER_ROW || y_coord >= m_cfg.mx_height)
   {
     return;
   }

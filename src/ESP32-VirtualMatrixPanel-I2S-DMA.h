@@ -455,7 +455,7 @@ inline void VirtualMatrixPanel::fillScreenRGB888(uint8_t r, uint8_t g, uint8_t b
 inline void VirtualMatrixPanel::drawPixelRGB888(int16_t x, int16_t y, uint8_t r, uint8_t g, uint8_t b)
 {
     this->getCoords(x, y);
-    this->display->drawPixelRGB888(coords.x, coords.y, r, g, b);
+    this->display->drawPixelRGB888(coords.x + 1, coords.y, r, g, b);
 }
 
 #ifdef USE_GFX_ROOT
